@@ -1,3 +1,5 @@
+/** Javascript by Elmer G. Balbin Jr. */
+
 const player = document.querySelector('.match__player');
 const computer = document.querySelector('.match__computer');
 let playerScore = 0;
