@@ -24,6 +24,7 @@ body {
     max-height: 20vh;
     flex: 1;
     flex-direction: column;
+    position: relative;
     h1 {
       margin: 0;
       padding: 0;
@@ -53,6 +54,11 @@ body {
           animation: computerPlus 0.7s linear forwards;
         }
       }
+    }
+    .status {
+      position: absolute;
+      bottom: -20px;
+      font-size: 1.1rem;
     }
   }
 

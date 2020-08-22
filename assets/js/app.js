@@ -4,6 +4,8 @@ const player = document.querySelector('.match__player');
 const computer = document.querySelector('.match__computer');
 let playerScore = 0;
 let computerScore = 0;
+const maxScore = 5;
+let gameStatus;
 
 const handsScreen = document.querySelector('.hands');
 const matchScreen = document.querySelector('.match');
@@ -57,6 +59,14 @@ function highlightHand(currHand) {
 }
 
 function gameOn(playerHand) {
+  if (playerScore >= maxScore || computerScore >= maxScore) {
+    playerScore = 0;
+    computerScore = 0;
+    document.querySelector('.score__player').innerHTML = playerScore;
+    document.querySelector('.score__computer').innerHTML = computerScore;
+    document.querySelector('.status').innerHTML = '';
+    document.querySelector('.status').style.display = 'none';
+  }
   shakeProgress = true;
   document.querySelector('.score__player__plus').classList.remove('add');
   document.querySelector('.score__computer__plus').classList.remove('add');
@@ -126,6 +136,16 @@ function gameOn(playerHand) {
       } else if (playerHand == 'scissors' && computerHand == 'paper') {
         playerScore++;
         document.querySelector('.score__player__plus').classList.add('add');
+      }
+
+      if (playerScore >= maxScore) {
+        document.querySelector('.status').innerHTML = 'YOU WIN!';
+        document.querySelector('.status').style.color = '#008000';
+        document.querySelector('.status').style.display = '';
+      } else if (computerScore >= maxScore) {
+        document.querySelector('.status').innerHTML = 'YOU LOSE!';
+        document.querySelector('.status').style.color = '#ff0000';
+        document.querySelector('.status').style.display = '';
       }
 
       document.querySelector('.score__player').innerHTML = playerScore;
