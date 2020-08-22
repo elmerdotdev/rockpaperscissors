@@ -2,8 +2,8 @@
 
 Demo: https://elmer.dev/projects/rockpaperscissorsjs/
 
-Icons: FontAwesome 5
+Rules: First to 5 wins
 
-Google Font: Dosis
-
-Precompiler: SCSS
+## Resources
+* Icons: FontAwesome 5
+* Google Font: Dosis
