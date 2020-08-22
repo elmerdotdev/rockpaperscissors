@@ -1,0 +1,156 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Dosis', sans-serif;
+  font-size: 16px; }
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; }
+  .container .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 20vh;
+    flex: 1;
+    flex-direction: column; }
+    .container .header h1 {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex: 1;
+      align-items: center;
+      text-align: center; }
+    .container .header .score {
+      margin: 0;
+      padding: 0;
+      font-size: 3rem;
+      display: flex;
+      flex: 1;
+      align-items: center; }
+      .container .header .score__player__plus {
+        opacity: 0;
+        transition: all 0.3s ease-in-out; }
+        .container .header .score__player__plus.add {
+          animation: playerPlus 0.7s linear forwards; }
+      .container .header .score__computer__plus {
+        opacity: 0;
+        transition: all 0.3s ease-in-out; }
+        .container .header .score__computer__plus.add {
+          animation: computerPlus 0.7s linear forwards; }
+  .container .canvas {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1; }
+    .container .canvas .hands {
+      width: 100%;
+      max-width: 768px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center; }
+      .container .canvas .hands__rock i {
+        transform: rotate(45deg); }
+      .container .canvas .hands__paper i {
+        transform: rotate(45deg); }
+      .container .canvas .hands__scissors i {
+        transform: scale(-1, 1) rotate(45deg); }
+      .container .canvas .hands > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer; }
+        .container .canvas .hands > div.active i {
+          color: #2196f3; }
+        .container .canvas .hands > div i {
+          font-size: 10rem;
+          transition: all 0.3s ease-in-out; }
+          .container .canvas .hands > div i:hover {
+            color: #2196f3; }
+          @media screen and (max-width: 600px) {
+            .container .canvas .hands > div i {
+              font-size: 7rem; } }
+        @media screen and (max-width: 600px) {
+          .container .canvas .hands > div {
+            padding: 10px; } }
+      .container .canvas .hands.ingame {
+        position: absolute;
+        bottom: 1rem;
+        flex-direction: row; }
+        .container .canvas .hands.ingame > div i {
+          font-size: 4rem; }
+      @media screen and (max-width: 600px) {
+        .container .canvas .hands {
+          flex-direction: column; } }
+    .container .canvas .match {
+      width: 100%;
+      max-width: 768px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center; }
+      .container .canvas .match__player .fa-hand-rock,
+      .container .canvas .match__player .fa-hand-paper {
+        transform: rotate(115deg); }
+      .container .canvas .match__player .fa-hand-scissors {
+        transform: scale(-1, 1) rotate(-45deg); }
+      .container .canvas .match__computer .fa-hand-rock,
+      .container .canvas .match__computer .fa-hand-paper {
+        transform: scale(-1, 1) rotate(115deg); }
+      .container .canvas .match__computer .fa-hand-scissors {
+        transform: rotate(-45deg); }
+      .container .canvas .match > div {
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .container .canvas .match > div i {
+          position: relative;
+          top: -2rem;
+          font-size: 10rem; }
+          @media screen and (max-width: 400px) {
+            .container .canvas .match > div i {
+              font-size: 9rem; } }
+  .container footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 10vh;
+    flex: 1; }
+
+.handShake {
+  animation: shake 1s linear forwards; }
+
+@keyframes shake {
+  0%,
+  40%,
+  80% {
+    transform: translateY(0px); }
+  20%,
+  60%,
+  100% {
+    transform: translateY(-10px); } }
+
+@keyframes playerPlus {
+  0% {
+    opacity: 0;
+    transform: translateX(0); }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translateX(-20px); } }
+
+@keyframes computerPlus {
+  0% {
+    opacity: 0;
+    transform: translateX(0); }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translateX(20px); } }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/app.css" />
+    <script
+      src="https://kit.fontawesome.com/2971c6f01f.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Rock, Paper, Scissors</h1>
+        <h3 class="score">
+          <span class="score__player__plus">+1</span>
+          <span class="score__player">0</span>
+          <span class="score__dash">-</span>
+          <span class="score__computer">0</span>
+          <span class="score__computer__plus">+1</span>
+        </h3>
+      </div>
+      <div class="canvas">
+        <div class="hands">
+          <div class="hands__rock"><i class="far fa-hand-rock"></i></div>
+          <div class="hands__paper"><i class="far fa-hand-paper"></i></div>
+          <div class="hands__scissors">
+            <i class="far fa-hand-scissors"></i>
+          </div>
+        </div>
+        <div class="match" style="display: none;">
+          <div class="match__player"><i class="far fa-hand-rock"></i></div>
+          <div class="match__spacer"></div>
+          <div class="match__computer">
+            <i class="far fa-hand-rock"></i>
+          </div>
+        </div>
+      </div>
+      <footer>by Elmer G. Balbin Jr.</footer>
+    </div>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

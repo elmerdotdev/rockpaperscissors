@@ -1,0 +1,216 @@
+$smallwidth: 400px;
+$mediumwidth: 600px;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Dosis', sans-serif;
+  font-size: 16px;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 20vh;
+    flex: 1;
+    flex-direction: column;
+    h1 {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex: 1;
+      align-items: center;
+      text-align: center;
+    }
+    .score {
+      margin: 0;
+      padding: 0;
+      font-size: 3rem;
+      display: flex;
+      flex: 1;
+      align-items: center;
+      &__player__plus {
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        &.add {
+          animation: playerPlus 0.7s linear forwards;
+        }
+      }
+      &__computer__plus {
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        &.add {
+          animation: computerPlus 0.7s linear forwards;
+        }
+      }
+    }
+  }
+
+  .canvas {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    .hands {
+      width: 100%;
+      max-width: 768px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      &__rock {
+        i {
+          transform: rotate(45deg);
+        }
+      }
+      &__paper {
+        i {
+          transform: rotate(45deg);
+        }
+      }
+      &__scissors {
+        i {
+          transform: scale(-1, 1) rotate(45deg);
+        }
+      }
+      > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &.active {
+          i {
+            color: #2196f3;
+          }
+        }
+        i {
+          font-size: 10rem;
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            color: #2196f3;
+          }
+          @media screen and (max-width: $mediumwidth) {
+            font-size: 7rem;
+          }
+        }
+        @media screen and (max-width: $mediumwidth) {
+          padding: 10px;
+        }
+      }
+      &.ingame {
+        position: absolute;
+        bottom: 1rem;
+        flex-direction: row;
+        > div {
+          i {
+            font-size: 4rem;
+          }
+        }
+      }
+      @media screen and (max-width: $mediumwidth) {
+        flex-direction: column;
+      }
+    }
+    .match {
+      width: 100%;
+      max-width: 768px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      &__player {
+        .fa-hand-rock,
+        .fa-hand-paper {
+          transform: rotate(115deg);
+        }
+        .fa-hand-scissors {
+          transform: scale(-1, 1) rotate(-45deg);
+        }
+      }
+      &__computer {
+        .fa-hand-rock,
+        .fa-hand-paper {
+          transform: scale(-1, 1) rotate(115deg);
+        }
+        .fa-hand-scissors {
+          transform: rotate(-45deg);
+        }
+      }
+      > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i {
+          position: relative;
+          top: -2rem;
+          font-size: 10rem;
+          @media screen and (max-width: $smallwidth) {
+            font-size: 9rem;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 10vh;
+    flex: 1;
+  }
+}
+
+.handShake {
+  animation: shake 1s linear forwards;
+}
+
+@keyframes shake {
+  0%,
+  40%,
+  80% {
+    transform: translateY(0px);
+  }
+  20%,
+  60%,
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes playerPlus {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes computerPlus {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
