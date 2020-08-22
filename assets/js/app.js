@@ -17,6 +17,9 @@ const computerHandArray = ['rock', 'paper', 'scissors'];
 
 let shakeProgress;
 
+const winMsg = 'YOU WIN!';
+const loseMsg = 'YOU LOSE!';
+
 rock.addEventListener('click', function () {
   if (shakeProgress == true) {
     return;
@@ -138,11 +141,11 @@ function gameOn(playerHand) {
       }
 
       if (playerScore >= maxScore) {
-        document.querySelector('.status').innerHTML = 'YOU WIN!';
+        document.querySelector('.status').innerHTML = winMsg;
         document.querySelector('.status').style.color = '#008000';
         document.querySelector('.status').style.display = '';
       } else if (computerScore >= maxScore) {
-        document.querySelector('.status').innerHTML = 'YOU LOSE!';
+        document.querySelector('.status').innerHTML = loseMsg;
         document.querySelector('.status').style.color = '#ff0000';
         document.querySelector('.status').style.display = '';
       }
