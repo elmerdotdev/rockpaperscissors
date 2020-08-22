@@ -5,7 +5,6 @@ const computer = document.querySelector('.match__computer');
 let playerScore = 0;
 let computerScore = 0;
 const maxScore = 5;
-let gameStatus;
 
 const handsScreen = document.querySelector('.hands');
 const matchScreen = document.querySelector('.match');
