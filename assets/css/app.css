@@ -59,7 +59,8 @@ body {
       max-width: 768px;
       display: flex;
       justify-content: space-evenly;
-      align-items: center; }
+      align-items: center;
+      transition: opacity 0.2s ease; }
       .container .canvas .hands__rock i {
         transform: rotate(45deg); }
       .container .canvas .hands__paper i {

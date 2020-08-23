@@ -15,71 +15,40 @@ const scissors = document.querySelector('.hands__scissors');
 
 const computerHandArray = ['rock', 'paper', 'scissors'];
 
-let shakeProgress;
-
 const winMsg = 'YOU WIN!';
 const loseMsg = 'YOU LOSE!';
 
-function debounce(func, wait, immediate) {
-  let timeout;
-  return function () {
-    let context = this,
-      args = arguments;
-    let later = function () {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    let callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
+rock.addEventListener('click', function () {
+  shakeProgress(true);
+  highlightHand('rock');
+  gameOn('rock');
+});
+
+paper.addEventListener('click', function () {
+  shakeProgress(true);
+  highlightHand('paper');
+  gameOn('paper');
+});
+
+scissors.addEventListener('click', function () {
+  shakeProgress(true);
+  highlightHand('scissors');
+  gameOn('scissors');
+});
+
+function shakeProgress(control) {
+  if (control == true) {
+    rock.style.pointerEvents = 'none';
+    paper.style.pointerEvents = 'none';
+    scissors.style.pointerEvents = 'none';
+    document.querySelector('.hands').style.opacity = '.5';
+  } else {
+    rock.style.pointerEvents = 'auto';
+    paper.style.pointerEvents = 'auto';
+    scissors.style.pointerEvents = 'auto';
+    document.querySelector('.hands').style.opacity = '1';
+  }
 }
-
-rock.addEventListener(
-  'click',
-  debounce(
-    function () {
-      if (shakeProgress == true) {
-        return;
-      }
-      highlightHand('rock');
-      gameOn('rock');
-    },
-    150,
-    true
-  )
-);
-
-paper.addEventListener(
-  'click',
-  debounce(
-    function () {
-      if (shakeProgress == true) {
-        return;
-      }
-      highlightHand('paper');
-      gameOn('paper');
-    },
-    150,
-    true
-  )
-);
-
-scissors.addEventListener(
-  'click',
-  debounce(
-    function () {
-      if (shakeProgress == true) {
-        return;
-      }
-      highlightHand('scissors');
-      gameOn('scissors');
-    },
-    150,
-    true
-  )
-);
 
 function highlightHand(currHand) {
   if (currHand == 'rock') {
@@ -106,7 +75,6 @@ function gameOn(playerHand) {
     document.querySelector('.status').innerHTML = '';
     document.querySelector('.status').style.display = 'none';
   }
-  shakeProgress = true;
   document.querySelector('.score__player__plus').classList.remove('add');
   document.querySelector('.score__computer__plus').classList.remove('add');
   setTimeout(function () {
@@ -191,10 +159,13 @@ function gameOn(playerHand) {
       document.querySelector('.score__computer').innerHTML = computerScore;
       /** End Score calculation */
 
-      shakeProgress = false;
+      /** Start Reset for new game */
+      shakeProgress(false);
+
       rock.classList.remove('active');
       paper.classList.remove('active');
       scissors.classList.remove('active');
+      /** End Reset for new game */
     }, 1500);
   }, 200);
 }
