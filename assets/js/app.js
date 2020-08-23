@@ -89,12 +89,14 @@ function gameOn(playerHand) {
     computerHandIcon.classList.add('fa-hand-rock');
 
     handsScreen.classList.add('ingame');
-    matchScreen.style.display = 'flex';
+    setTimeout(() => {
+      matchScreen.style.display = 'flex';
+    }, 200);
 
     setTimeout(function () {
       player.classList.add('handShake');
       computer.classList.add('handShake');
-    }, 500);
+    }, 700);
 
     setTimeout(function () {
       player.classList.remove('handShake');
@@ -166,6 +168,6 @@ function gameOn(playerHand) {
       paper.classList.remove('active');
       scissors.classList.remove('active');
       /** End Reset for new game */
-    }, 1500);
+    }, 1700);
   }, 200);
 }
