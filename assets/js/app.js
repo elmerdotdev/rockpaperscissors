@@ -20,29 +20,66 @@ let shakeProgress;
 const winMsg = 'YOU WIN!';
 const loseMsg = 'YOU LOSE!';
 
-rock.addEventListener('click', function () {
-  if (shakeProgress == true) {
-    return;
-  }
-  highlightHand('rock');
-  gameOn('rock');
-});
+function debounce(func, wait, immediate) {
+  let timeout;
+  return function () {
+    let context = this,
+      args = arguments;
+    let later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    let callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
 
-paper.addEventListener('click', function () {
-  if (shakeProgress == true) {
-    return;
-  }
-  highlightHand('paper');
-  gameOn('paper');
-});
+rock.addEventListener(
+  'click',
+  debounce(
+    function () {
+      if (shakeProgress == true) {
+        return;
+      }
+      highlightHand('rock');
+      gameOn('rock');
+    },
+    150,
+    true
+  )
+);
 
-scissors.addEventListener('click', function () {
-  if (shakeProgress == true) {
-    return;
-  }
-  highlightHand('scissors');
-  gameOn('scissors');
-});
+paper.addEventListener(
+  'click',
+  debounce(
+    function () {
+      if (shakeProgress == true) {
+        return;
+      }
+      highlightHand('paper');
+      gameOn('paper');
+    },
+    150,
+    true
+  )
+);
+
+scissors.addEventListener(
+  'click',
+  debounce(
+    function () {
+      if (shakeProgress == true) {
+        return;
+      }
+      highlightHand('scissors');
+      gameOn('scissors');
+    },
+    150,
+    true
+  )
+);
 
 function highlightHand(currHand) {
   if (currHand == 'rock') {
