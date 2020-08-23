@@ -87,7 +87,7 @@ body {
             padding: 10px; } }
       .container .canvas .hands.ingame {
         position: absolute;
-        bottom: 2rem;
+        bottom: 1.75rem;
         flex-direction: row; }
         .container .canvas .hands.ingame > div i {
           font-size: 4rem; }
