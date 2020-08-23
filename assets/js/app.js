@@ -41,7 +41,7 @@ function shakeProgress(control) {
     rock.style.pointerEvents = 'none';
     paper.style.pointerEvents = 'none';
     scissors.style.pointerEvents = 'none';
-    document.querySelector('.hands').style.opacity = '.5';
+    document.querySelector('.hands').style.opacity = '.2';
   } else {
     rock.style.pointerEvents = 'auto';
     paper.style.pointerEvents = 'auto';
